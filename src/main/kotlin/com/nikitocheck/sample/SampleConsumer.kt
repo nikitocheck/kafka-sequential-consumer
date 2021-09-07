@@ -1,4 +1,5 @@
-import org.apache.kafka.clients.consumer.ConsumerConfig
+package com.nikitocheck.sample
+
 import org.apache.kafka.clients.consumer.ConsumerConfig.*
 import org.apache.kafka.common.serialization.IntegerDeserializer
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -15,8 +16,8 @@ class SampleConsumer(bootstrapServers: String) {
     private val receiverOptions: ReceiverOptions<Int, String> = ReceiverOptions.create(
         mapOf<String, Any>(
             BOOTSTRAP_SERVERS_CONFIG to bootstrapServers,
-            CLIENT_ID_CONFIG to "sample-consumer",
-            GROUP_ID_CONFIG to "sample-group",
+            CLIENT_ID_CONFIG to "com.nikitocheck.sample-consumer",
+            GROUP_ID_CONFIG to "com.nikitocheck.sample-group",
             KEY_DESERIALIZER_CLASS_CONFIG to IntegerDeserializer::class.java,
             VALUE_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java,
             AUTO_OFFSET_RESET_CONFIG to "earliest"
